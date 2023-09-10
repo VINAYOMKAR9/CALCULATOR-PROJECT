@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+</head>
+<style>
+    h1{
+    margin: auto;
+    text-align: center;
+    margin-top: 20px; */
+        /* /* margin-bottom: 29px; */
+    }
+#maine{
+    border: 1px solid ;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;    margin: auto;
+        width: 20%;
+        height: 360px;
+        text-align: center;
+        font-weight: bold;
+        /* justify-content: space-evenly; */
+        margin-top: 20px;
+        border-radius: 8px;
+        }
+#display{
+    border: 1px solid red;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        height: 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;  
+        font-size: 22px;   
+        overflow: hidden; 
+        align-items: center;
+    }
+#btn{
+    /* border: 1px solid black; */
+    
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,55px);
+    gap: 10px;
+    
+}
+#btn>div{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border: 1px solid brown;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 15px;
+}
+.black{
+    background-color: black;
+    color: white;
+}
+.red{
+    background-color: red;
+    color: white;
+}
+#btn :hover{
+    background-color: green;
+    color: black;
+    font-size: 35px;
+}
+
+
+</style>
+<body>
+    <h1>CALCULATOR</h1>
+    <div>
+    <div id="maine">        
+        <div id="display">
+            <!-- displaying Number here  -->
+        </div>    
+        <div id="btn">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div class="black">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div class="black">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div class="black">*</div>     
+            <div class="red">C</div>
+            <div>0</div>
+            <div class="black">=</div>
+            <div class="black">/</div>
+        </div>
+    </div>
+</div>      
+</body>
+</html>
+<script>
+    let keys = document.querySelectorAll("#btn>div");
+    let value="";
+    for(let i = 0;i < keys.length;i++){
+        keys[i].addEventListener("click",myCalculator);
+     }
+     
+     function myCalculator(event){
+        let ivalu = event.target.innerText;
+
+        if (ivalu=="C"){
+            value=""
+            document.querySelector("#display").innerText="";
+        }
+        else if(ivalu == "="){
+            if (value==""){
+                document.querySelector("#display").innerText=null;
+            }else{
+            document.querySelector("#display").innerText=eval(value);
+            }
+        }
+        else{
+        value = value + ivalu;
+        document.querySelector("#display").innerText=value;
+        }
+
+     } 
+
+</script>
